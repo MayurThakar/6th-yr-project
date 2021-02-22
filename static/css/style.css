@@ -1,0 +1,161 @@
+/* Developed by @proh_gram_er */
+
+:root {
+  --fontface: ubuntu, Arial, sans-serif;
+}
+
+body {
+  background-color: #393e46;
+}
+
+.error {
+  color: #f6416c;
+}
+
+.success {
+  color: #17b978;
+}
+
+.add {
+  background-color: #1fab89;
+}
+
+.log {
+  background-color: #00adb5;
+}
+
+.assign {
+  background-color: #590d82;
+}
+
+.create {
+  background-color: #fc5185;
+}
+
+.xlsx {
+  background-color: #107c41;
+}
+
+header h1,
+h2,
+h3,
+h4 {
+  font-weight: normal;
+}
+
+.header {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: var(--fontface);
+  background-color: #393e46;
+}
+
+.header-block {
+  width: 100%;
+  margin: 1em;
+  padding: 1em;
+  color: #eaeaea;
+  text-align: center;
+}
+
+main {
+  color: #ffffff;
+}
+
+.main-block {
+  width: 97%;
+  margin: 1em;
+  padding: 1em;
+  border-radius: 10px;
+  color: #eaeaea;
+  background-color: #364f6b;
+  font-size: 1.3em;
+}
+
+.text-field-block {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  font-family: var(--fontface);
+  background-color: #393e46;
+}
+
+.text-field-card {
+  width: 20em;
+  padding: 1em;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: var(--color);
+  text-align: center;
+}
+
+input[placeholder] {
+  width: 85%;
+  padding: 8px 12px;
+  font-size: 1em;
+  border-width: 1px;
+  border-style: solid;
+  font-family: var(--fontface);
+  border-color: transparent;
+  outline: none;
+  border-radius: 25px;
+  background-color: #eee;
+  transition: background-color 0.15s linear, border-color 0.2s ease;
+}
+
+input[placeholder]::selection {
+  background-color: var(--color);
+  color: lightblue;
+}
+
+input[placeholder]::placeholder {
+  color: #888;
+}
+
+input[placeholder]:hover {
+  background-color: #ddd;
+}
+
+input[placeholder]:focus {
+  background-color: transparent;
+  border-color: var(--color);
+}
+
+button {
+  margin: 8px;
+  padding: 8px;
+  min-width: 8em;
+  font-family: var(--fontface);
+  font-size: 1.2em;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 25px;
+  color: #fff;
+  transition: background-color 0.15s linear;
+}
+
+button:hover {
+  background-color: #5e6f64;
+}
+
+.text-primary {
+  color: lightgreen;
+}

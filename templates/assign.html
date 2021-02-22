@@ -1,0 +1,173 @@
+<!-- Developed by @proh_gram_er -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <title>assign</title>
+  </head>
+  <body>
+    <main>
+      <div class="text-field-block">
+        {% if error %}
+        <p class="error"><strong> Error: </strong> {{ error }}</p>
+        {% elif success %}
+        <p class="success"><strong> Alert: </strong> {{ success }}</p>
+        {% endif %}
+        <div class="text-field-card">
+          <div class="form-control">
+            <h1 style="color: #0c056d">Assign</h1>
+            <form method="POST">
+              <p>
+                <input type="text" name="name" required placeholder="Name" />
+              </p>
+              <p>
+                <input
+                  type="text"
+                  name="subject"
+                  required
+                  placeholder="Subject"
+                />
+              </p>
+              <p>
+                <input type="time" name="time" required placeholder="Time" />
+              </p>
+              <table>
+                <tr>
+                  <td>
+                    <div class="form-group">
+                      <label
+                        for="exampleFormControlSelect1"
+                        style="color: black"
+                        >Session no</label
+                      >
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-group">
+                      <select class="form-control" name="idx">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="day"
+                        value="Monday"
+                      />
+                      <label
+                        style="color: black"
+                        class="form-check-label"
+                        for="inlineCheckbox1"
+                        >Monday</label
+                      >
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="day"
+                        value="Tuesday"
+                      />
+                      <label
+                        style="color: black"
+                        class="form-check-label"
+                        for="inlineCheckbox1"
+                        >Tuesday</label
+                      >
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="day"
+                        value="Wednesday"
+                      />
+                      <label
+                        style="color: black"
+                        class="form-check-label"
+                        for="inlineCheckbox1"
+                        >Wednesday</label
+                      >
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="day"
+                        value="Thursday"
+                      />
+                      <label
+                        style="color: black"
+                        class="form-check-label"
+                        for="inlineCheckbox1"
+                        >Thursday</label
+                      >
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="day"
+                        value="Friday"
+                      />
+                      <label
+                        style="color: black"
+                        class="form-check-label"
+                        for="inlineCheckbox1"
+                        >Friday</label
+                      >
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="day"
+                        value="Saturday"
+                      />
+                      <label
+                        style="color: black"
+                        class="form-check-label"
+                        for="inlineCheckbox1"
+                        >Saturday</label
+                      >
+                    </div>
+                  </td>
+                </tr>
+              </table>
+              <p>
+                <button class="assign" type="submit">Set</button>
+              </p>
+              <a style="color: #555" href="back"><u>Go back</u></a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!-- Developed by @proh_gram_er -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <title>table</title>
+  </head>
+  <body>
+    <main>
+      <div class="text-field-block">
+        {% if error %}
+        <p class="error"><strong> Error: </strong> {{ error }}</p>
+        {% elif success %}
+        <p class="success"><strong> Alert: </strong> {{ success }}</p>
+        {% endif %}
+        <div class="text-field-card">
+          <div class="form-control">
+            <h1 style="color: #62d2a2">Add data</h1>
+            <form method="POST">
+              <p>
+                <input
+                  type="text"
+                  name="first_name"
+                  required
+                  placeholder="First name"
+                />
+              </p>
+              <p>
+                <input
+                  type="text"
+                  name="last_name"
+                  required
+                  placeholder="Last name"
+                />
+              </p>
+              {% if identifier == '@fac.' %}
+              <p>
+                <input
+                  type="text"
+                  name="subject"
+                  required
+                  placeholder="Subject"
+                />
+              </p>
+              {% else %}
+              <p>
+                <input
+                  type="text"
+                  name="roll_no"
+                  required
+                  placeholder="Roll no"
+                />
+              </p>
+              {% endif %}
+              <p>
+                <input
+                  type="date"
+                  name="birth_date"
+                  required
+                  placeholder="Date of birth"
+                />
+              </p>
+              <p>
+                <input
+                  type="text"
+                  name="contact_no"
+                  required
+                  placeholder="Contact number"
+                />
+              </p>
+              <p>
+                <input
+                  type="text"
+                  name="address"
+                  required
+                  placeholder="Address"
+                />
+              </p>
+              <p>
+                <button class="add" type="submit">Insert</button>
+              </p>
+              <a style="color: #555" href="back"><u>Go back</u></a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

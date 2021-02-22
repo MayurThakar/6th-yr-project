@@ -1,0 +1,36 @@
+<!-- Developed by @proh_gram_er -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <title>login</title>
+  </head>
+  <body>
+    <main>
+      <div class="text-field-block">
+        {% if error %}
+        <p class="error"><strong> Error: </strong> {{ error }}</p>
+        {% endif %}
+        <div class="text-field-card">
+          <div class="form-control">
+            <h1 style="color: #3fc1c9">Login</h1>
+            <form method="POST">
+              <p>
+                <input type="text" name="id" required placeholder="@ID" />
+              </p>
+              <p>
+                <button class="log" type="submit">Login</button>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+<!-- Developed by @proh_gram_er -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <title>hod</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#announcements">Announcements</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#events">Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="logout">Logout</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Tables
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li>
+                  <a class="dropdown-item" href="add_faculty">Add Faculty</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="assign_session"
+                    >Assign Session</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <header>
+      <div class="header">
+        <div class="header-block">
+          <h1>WELCOME</h1>
+          <h2>Head of Department</h2>
+          <h3>{{ first_name }} {{ last_name }}</h3>
+        </div>
+      </div>
+    </header>
+    <main>
+      <h2 id="announcements">Announcements</h2>
+      {% for announcement in announcements %}
+      <div class="main-block" style="background-color: #364f6b">
+        <p>{{announcement.get('title')}}<br />{{announcement.get('date')}}</p>
+        <p>{{announcement.get('description')}}</p>
+      </div>
+      {% endfor %}
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a href="announcement">
+          <button type="button" class="btn btn-outline-success">Create</button>
+        </a>
+      </div>
+      <h2 id="events">Events</h2>
+      {% for event in events %}
+      <div class="main-block" style="background-color: #00b8a9">
+        <p>{{event.get('title')}}<br />{{event.get('date')}}</p>
+        <p>{{event.get('description')}}</p>
+      </div>
+      {% endfor %}
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a href="event">
+          <button type="button" class="btn btn-outline-success">Create</button>
+        </a>
+      </div>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

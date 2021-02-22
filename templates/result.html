@@ -1,0 +1,62 @@
+<!-- Developed by @proh_gram_er -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <title>result</title>
+  </head>
+  <body style="background-color: #393e46">
+    <header>
+      <div class="header-block" style="margin: 2em">
+        {% if error %}
+        <p class="error"><strong> Error: </strong> {{ error }}</p>
+        {% endif %}
+        <form method="POST">
+          <div class="input-group mb-3">
+            <input
+              class="form-control"
+              type="text"
+              name="file"
+              placeholder="Excel file path"
+              aria-describedby="button-addon2"
+            />
+            <span class="input-group-text" id="basic-addon2">.xlsx</span>
+            <button
+              class="btn btn-outline-secondary"
+              type="submit"
+              style="background-color: #107c41; color: white"
+            >
+              Import
+            </button>
+          </div>
+        </form>
+      </div>
+    </header>
+    {% if result %}
+    <main>
+      <table>
+        {% for res in result %}
+        <tr>
+          <td>{{ res }}</td>
+          <td>{{ res }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </main>
+    {% endif %}
+    <scripts
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></scripts>
+  </body>
+</html>

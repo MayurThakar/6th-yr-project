@@ -1,0 +1,142 @@
+<!-- Developed by @proh_gram_er -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <title>faculty</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#announcements">Announcements</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#events">Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="logout">Logout</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Tables
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li>
+                  <a class="dropdown-item" href="add_student">Add Student</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="attendance">Attendance</a>
+                </li>
+                <li><a class="dropdown-item" href="result">Result</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <header>
+      <div class="header">
+        <div class="header-block">
+          <h1>WELCOME</h1>
+          <h2>{{ first_name }} {{ last_name }}</h2>
+          <h3>{{ subject }}</h3>
+          <br />
+          {% if error %}
+          <p class="error"><strong> Warning: </strong> {{ error }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="form-control">
+        <form method="POST">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <input
+              type="text"
+              name="link"
+              required
+              placeholder="session link"
+            />
+            <button
+            class="btn btn-outline-primary"
+              type="submit"
+            >
+              Post
+            </button>
+          </div>
+        </form>
+      </div>
+      {% if lecture %}
+      <h2>Today's Session</h2>
+      <div class="main-block" style="background-color: #6639a6">
+        <p><strong> Subject: </strong> {{ lecture['subject'] }}</p>
+        <p><strong> Time: </strong> {{ lecture['time'] }}</p>
+        {% if 'link' in lecture %}
+        <p><strong> Link: </strong><a href= {{ lecture['link'] }}>{{ lecture['link'] }}</a></p>
+        {% endif %}
+      </div>
+      {% endif %}
+      <h2 id="announcements">Announcements</h2>
+      {% for announcement in announcements %}
+      <div class="main-block" style="background-color: #364f6b">
+        <p>
+          {{ announcement.get('title') }}<br />{{ announcement.get('date') }}
+        </p>
+        <p>{{ announcement.get('description') }}</p>
+      </div>
+      {% endfor %}
+      <h2 id="events">Events</h2>
+      {% for event in events %}
+      <div class="main-block" style="background-color: #3fc1c9">
+        <p>{{ event.get('title') }}<br />{{ event.get('date') }}</p>
+        <p>{{ event.get('description') }}</p>
+      </div>
+      {% endfor %}
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
